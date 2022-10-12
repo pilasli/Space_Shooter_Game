@@ -9,8 +9,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text _scoreTextP2;
     [SerializeField] private Text _coinTextP1;
     [SerializeField] private Text _coinTextP2;
-    public Image[] _livesImgP1;
-    public Image[] _livesImgP2;
     [SerializeField] private Text _gameOverText;
     [SerializeField] private Text _restartText;
     [SerializeField] private Sprite _fullLive;
@@ -18,6 +16,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _pauseMenuPanel;
     [SerializeField] private GameObject _livesP1Panel;
     [SerializeField] private GameObject _livesP2Panel;
+    public Image[] _livesImgP1;
+    public Image[] _livesImgP2;
 
     private GameManager _gameManager;
     
@@ -46,12 +46,6 @@ public class UIManager : MonoBehaviour
         }
         _gameOverText.gameObject.SetActive(false);
         _restartText.gameObject.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void UpdateScoreP1(int score)

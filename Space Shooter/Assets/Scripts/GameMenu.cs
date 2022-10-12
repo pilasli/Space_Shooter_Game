@@ -8,8 +8,6 @@ public class GameMenu : MonoBehaviour
 {
     Resolution[] resolutions;
     public Dropdown resolutionDropdown;
-    //public Slider _volumeSlider;
-    //public AudioMixer _audioMixer;
     private float _value;
 
     // Start is called before the first frame update
@@ -33,12 +31,6 @@ public class GameMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void GoOptionsMenu()

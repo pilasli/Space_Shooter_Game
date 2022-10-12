@@ -12,8 +12,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioMixerGroup soundEffectMixerGroup;
     [SerializeField] private Sound[] sounds;
 
-    // Start is called before the first frame update
-    
+    // Start is called before the first frame update 
     void Awake()
     {
         instance = this;

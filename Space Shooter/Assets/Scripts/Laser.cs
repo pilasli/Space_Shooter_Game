@@ -10,7 +10,6 @@ public class Laser : MonoBehaviour
     private bool _isPlayer1Laser = false;
     private bool _isPlayer2Laser = false;
 
-    
     private GameManager _gameManager;
     private UpgradeManager _upgradeManager;
     private SpawnManager _spawnManager;

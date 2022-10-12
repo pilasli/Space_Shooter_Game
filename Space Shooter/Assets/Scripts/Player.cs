@@ -3,37 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
-{      
+{ 
+    private Vector3 _laserOffset = new Vector3(0, 1.05f , 0);
+    [SerializeField] private GameObject _shieldVisualizer;
+    [SerializeField] private GameObject[] _engineFireVisualizers;
+    [SerializeField] private GameObject _laserPrefab;
+    [SerializeField] private GameObject _tripleLaserPrefab;
+    [SerializeField] private GameObject _laserBeamPrefab;
+    [SerializeField] private int _score = 0;
+    [SerializeField] private float _speed = 5.0f;
+    public int _gold = 0;
     private float _speedMultiplier = 2.0f;
     private float _horizontalBound = 11.3f;
     private float _topBound = 5;
     private float _downBound = -3;
     private float _canFire1 = 0.0f;
     private float _canFire2 = 0.0f;
-    private Vector3 _laserOffset = new Vector3(0, 1.05f , 0);
     public int _lives = 3;
     public int _numOfLives = 3;
     public int _shields = 0;
     public int _numOfShields = 1;
     public float _laserFireRate = 0.15f;
-    //public float _laserBeamRate = 1.0f;
     public float _powerupTime = 5.0f;
     public float _playerLaserShotDamage = 10;
-    //public float _playerLaserBeamDPS = 10;
-    public int _gold = 0;
-    [SerializeField] private int _score = 0;
-    [SerializeField] private float _speed = 5.0f;
-    [SerializeField] private GameObject _shieldVisualizer;
-    [SerializeField] private GameObject[] _engineFireVisualizers;
-    [SerializeField] private GameObject _laserPrefab;
-    [SerializeField] private GameObject _tripleLaserPrefab;
-    [SerializeField] private GameObject _laserBeamPrefab;
+    public bool isPlayerOne;
+    public bool isPlayerTwo;
     private bool _isTripleLaserActive = false;
     private bool _isSpeedActive = false;
     private bool _isInvincible = false;
-    public bool isPlayerOne;
-    public bool isPlayerTwo;
-    //private bool _isShieldActive = false;
+    [SerializeField]
+    private bool isLaserBeamActive = false;
 
     private GameManager _gameManager;
     private SpawnManager _spawnManager;
@@ -81,13 +80,15 @@ public class Player : MonoBehaviour
             {
                 ShootPlayerOne();
             }
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.E) && !isLaserBeamActive)
             {
                 _laserBeamPrefab.SetActive(true);
+                isLaserBeamActive = true;                
             }
-            else if(Input.GetKeyUp(KeyCode.Q))
+            else if(Input.GetKeyDown(KeyCode.E) && isLaserBeamActive)
             {
                 _laserBeamPrefab.SetActive(false);
+                isLaserBeamActive = false;
             }
         }
         if(isPlayerTwo == true)
@@ -184,8 +185,7 @@ public class Player : MonoBehaviour
                 {
                     lasers1[i].AssignPlayer1Laser();
                 }
-                AudioManager.instance.Play("Laser_Shot_Sound");
-             
+                AudioManager.instance.Play("Laser_Shot_Sound");            
             }
         }
 

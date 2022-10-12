@@ -5,16 +5,7 @@ using UnityEngine;
 public class Powerup : MonoBehaviour
 {
     [SerializeField] private float _speed = 3.0f;
-    //ID for powerups, 0=Tripple Laser, 1=Speed, 2=Shield, 3=Heart, 4=Coin
-    [SerializeField] private int _powerupID;
-
-    //[SerializeField] private AudioClip _clip;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    [SerializeField] private int _powerupID;    //ID for powerups, 0=Tripple Laser, 1=Speed, 2=Shield, 3=Heart, 4=Coin
 
     // Update is called once per frame
     void Update()

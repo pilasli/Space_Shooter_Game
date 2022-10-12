@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject _coinPrefab;
     [SerializeField] private float _speed = 1.5f;   
     [SerializeField] private SimpleFlash _flashEffect;
+
     private float _spawnPosY = 8;
     private float _fireRate = 3.0f;
     private float _canFire = -1;
@@ -140,7 +141,7 @@ public class Enemy : MonoBehaviour
         AudioManager.instance.Play("Explosion_Sound");
         _spawnManager.enemyCounter--;
         int _coinDropNum = Random.Range(1, 101);
-        //_coinDropNum = Mathf.RoundToInt(_coinDropNum);
+        
         if(_coinDropNum <= _coinDropChance)
         {
             StartCoroutine(CoinCreateRoutine());

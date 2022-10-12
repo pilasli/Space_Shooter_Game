@@ -13,18 +13,6 @@ public class SpawnManager : MonoBehaviour
     [HideInInspector] public int enemyCounter = 0;
     public bool _stopSpawning = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void StartSpawning()
     {
         StartCoroutine(SpawnEnemyRoutine());
@@ -58,7 +46,6 @@ public class SpawnManager : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(3f,7f));
         }
     }
-
 
     public void OnPlayerDead()
     {

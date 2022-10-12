@@ -14,8 +14,6 @@ public class GameManager : MonoBehaviour
     private SpawnManager _spawnManager;
     private UIManager _uiManager;
     private GameMenu _gameMenu;
-    //arayüz animasyonundan vazgeçtim
-    //private Animator _pauseAnimator;
 
     [SerializeField] private GameObject _pauseMenuPanel;
     [SerializeField] private GameObject _shopPanel;
@@ -56,7 +54,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //arayüz animasyonunda vazgeçtim
         //_pauseAnimator = GameObject.Find("Pause_Menu_Panel").GetComponent<Animator>();
         //_pauseAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
@@ -84,7 +81,6 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.R) && _isGameOver == true)
         {
-            //_savePrefs.LoadData();
             SceneManager.LoadScene("Level_1");
             /*if(_isCoOpMode == false)
             {
@@ -132,7 +128,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("GameManager::GameOver() Called");
         _isGameOver = true;
-        //_spawnManager.StartSpawning();    //Bu satırı kontrol et, normalde aktifti ama aktif olması mantıklı gelmedi ve kapadım, birşeyleri bozarsa geri açarız
+        //_spawnManager.StartSpawning();
     }
 
     public void PauseGame()
@@ -140,7 +136,6 @@ public class GameManager : MonoBehaviour
         _uiManager.HideInPause();
         _pauseMenuPanel.SetActive(true);
         _gameMenu.CursorLockOff();
-        //arayüz animasyonunda vazgeçtim
         //_pauseAnimator.SetBool("isPaused", true);
         _isGamePaused = true;
         Time.timeScale = 0f;
@@ -153,7 +148,6 @@ public class GameManager : MonoBehaviour
             _gameMenu.CursorLockOn();
             _pauseMenuPanel.SetActive(false);
             _uiManager.ShowOutPause();
-            //arayüz animasyonundan vazgeçtim
             //_pauseAnimator.SetBool("isPaused", false);
             _isGamePaused = false;
             Time.timeScale = 1.0f;

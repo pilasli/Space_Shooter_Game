@@ -5,15 +5,6 @@ using UnityEngine.UI;
 
 public class UpgradeManager : MonoBehaviour
 {
-    /*public int _lives = 3;
-    public int _numOfLives = 3;
-    public int _shields = 0;
-    public int _numOfShields = 1;
-    public float _laserFireRate = 0.15f;
-    public float _powerupTime = 5.0f;
-    public float _playerLaserShotDamage = 10f;
-    public int _coinDropChance = 40;*/
-
     private UIManager _uiManager;
     private GameManager _gameManager;
     private Player _player1;
@@ -88,11 +79,6 @@ public class UpgradeManager : MonoBehaviour
         }
         SetStart();
         SetButtons();
-    }
-
-    void Update()
-    {
-
     }
 
     private void SetStart()

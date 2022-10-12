@@ -20,12 +20,6 @@ public class SimpleFlash : MonoBehaviour
         flashMaterial = new Material(flashMaterial);  
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Flash(Color color)
     {
         if (flashRoutine != null)

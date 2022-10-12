@@ -21,7 +21,6 @@ public class MainMenu : MonoBehaviour
 
     /*public void LoadSinglePlayer()
     {
-
         AudioManager.instance.Stop("Main_Menu_Music");
         Debug.Log("Single Player Game is Loading...");
         SceneManager.LoadScene("Single_Player");
